@@ -6,7 +6,8 @@ def list_files(directory, file_list,master_dict):
     """遍历目录，将文件路径和文件名添加到字典中，并将字典添加到列表中"""
     for root, dirs, files in os.walk(directory):
         for file in files:
-            match = re.search(r'_([^_]+)_', file)
+            # match = re.search(r'_([^_]+)_', file)
+            match = re.search(r'_([^_]+?)\d{8}(?=\.xlsx$)', file)
             if match:
                 sName = match.group(1)
             else:
