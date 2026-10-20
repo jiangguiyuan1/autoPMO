@@ -5,9 +5,10 @@ from copyFile import *
 from pywinauto import Desktop
 
 def send_file_WX(factoryName, filePath,traceName,planName):
+
     # 连接到正在运行的微信客户端
     app = Application(backend="uia").connect(title="微信")
-
+    #print("ttt")
     # 定位到微信主窗口
     main_win = app.window(class_name='mmui::MainWindow')
     #main_win.print_control_identifiers()
@@ -46,9 +47,9 @@ def send_file_WX(factoryName, filePath,traceName,planName):
     send_keys("你好,本周补货单,麻烦尽快安排, 不足起订量请")
     #copy("你好，本周补货单，麻烦尽快安排，不足起订量请")
     send_keys('@' +  planName, with_spaces=True)
-    send_keys('{ENTER}')
-    time.sleep(0.2)
     send_keys('{DOWN 1}')
+    send_keys('{ENTER}')
+    time.sleep(0.01)
     send_keys('{ENTER}')
     time.sleep(0.2)
     app_window = Desktop(backend="uia").window(

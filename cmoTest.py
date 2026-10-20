@@ -21,7 +21,7 @@ if code !='success':
 master_dict = getSupplyInfo()
 
 #读取未结单明细
-file_path = r"C:\Users\guiyuan.zhang\Desktop\未结单明细表3.19.xlsx"
+file_path = r"D:\PMO-派单\未结单明细表10.9.xlsx"
 sheet_name = '明细'
 # 使用openpyxl引擎读取指定工作表
 planList = ['黄峥','刘乐婷','李远翘','陈伟锡','杨骏榔','黄青兰','林舒影','邓颖焰','张桂源','袁梓清']
@@ -85,6 +85,7 @@ for key,value in supply_dict.items():
     string = re.sub(r'C', '\nC', string)
     string = re.sub(r'a', '\na', string)
     string = string+"\n如有退款，可忽略已退款项"
+    #string = string + "\n\n我司中秋、国庆假期仓库作业安排通知：\n9月25日、10月1日-3日共计四天暂停收货、验货、入库。\n烦请贵司提前规划发货，感谢配合！"
     charLength = len(string)
 
     if master_dict.get(key) == None:

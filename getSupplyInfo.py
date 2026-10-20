@@ -3,7 +3,7 @@ import pandas as pd
 # 指定Excel文件路径和工作表名称
 
 def getSupplyInfo():
-    supplyGroup = pd.read_excel('C:\\Users\\guiyuan.zhang\\Desktop\\供应商对应关系.xlsx', engine='openpyxl')
+    supplyGroup = pd.read_excel('D:\\PMO-派单\\供应商对应关系.xlsx', engine='openpyxl')
     # 将每行数据转换为字典并存储到列表中
     supplyGroup.fillna(0, inplace=True)
     supplyGroup_list = supplyGroup.to_dict(orient='records')
@@ -25,7 +25,7 @@ def getSupplyInfo():
 
 
 def getSupplyInfoAll():
-    supplyGroup = pd.read_excel('C:\\Users\\guiyuan.zhang\\Desktop\\供应商对应关系.xlsx', engine='openpyxl')
+    supplyGroup = pd.read_excel('D:\\PMO-派单\\供应商对应关系.xlsx', engine='openpyxl')
     # 将每行数据转换为字典并存储到列表中
     supplyGroup.fillna(0, inplace=True)
     supplyGroup_list = supplyGroup.to_dict(orient='records')

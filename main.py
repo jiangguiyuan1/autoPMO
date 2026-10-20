@@ -47,7 +47,7 @@ directory = 'D:\\PMO-派单'
 files_array = []
 
 #读取供应商对应关系
-df = pd.read_excel('C:\\Users\\guiyuan.zhang\\Desktop\\供应商对应关系.xlsx', engine='openpyxl')
+df = pd.read_excel('D:\\PMO-派单\\供应商对应关系.xlsx', engine='openpyxl')
 #df = pd.read_excel('C:\\Users\\guiyuan.zhang\\Desktop\\供应商对应关系-1.xlsx', engine='openpyxl')
 
 # 将每行数据转换为字典并存储到列表中
@@ -104,6 +104,7 @@ for file_dict in files_array:
     planName = group[4]
     #print(file_dict)
     #开始派单
+
     try:
         if group[1] == '微信' and groupName != 0:
             # 3.9.12.55版本
@@ -133,19 +134,6 @@ for file_dict in files_array:
 if not failList :
     print("全部成功")
 else:
-    # failInfo = pd.DataFrame(failList)
-    # failInfo.sort_values(by='path', inplace=True)
-    # # 获取桌面路径
-    # desktop_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')  # Windows
-    # date_str = pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')
-    # file_name = "失败文件"
-    # file_format = 'xlsx'  # 文件格式
-    # # 完整的文件名，包含格式和时间戳
-    # full_file_name = f"{file_name}_{date_str}.{file_format}"
-    # # 完整的文件路径
-    # full_file_path = os.path.join(desktop_path, full_file_name)
-    # # 将DataFrame写入Excel文件
-    # failInfo.to_excel(full_file_path, index=False, engine='openpyxl')  # 使用openpyxl作为引擎
 
     full_file_path = exportFile(failList, "失败文件")
     print("以下发送失败")
@@ -160,7 +148,7 @@ else:
 
 # 记录结束时间
 end_time = time.time()
-
+time.sleep(3)
 # 计算并打印执行时间
 print(f"执行时间：{(end_time - start_time) / 60}分钟")
 
